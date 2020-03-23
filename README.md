@@ -1,1 +1,2 @@
-# skp2020
+# MagicCosmetic
+Magic Cosmetic is Website cosmetic e-commerce
