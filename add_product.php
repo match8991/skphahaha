@@ -59,5 +59,80 @@
       </div> <!-- /.row -->
       <div>
 
+      <form action="confirm_addpro.php" method="post" enctype="multipart/form-data">
+                            <div class="row" >
+                            	<div class="col-md-2 col-sm-2">
+                                  <h6>ชื่อสินค้า : </h6>
+                              </div>
+                              <div>
+                              <input name="Product_name" type="text" size="100">
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                            	<div class="col-md-2 col-sm-2">
+                               <h6>รายละเอียด : </h6>
+                              </div>
+                              <div>
+                              <input name="Product_detail" type="text" size="100">
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                            	<div class="col-md-2 col-sm-2">
+                                <h6>หมวดหมู่ : </h6>
+                              </div>
+                              <div>
+                                    <select name="ProType_name">
+                                        <option value="1">วัสุดก่อสร้าง</option>
+                                        <option value="2">หลังคา</option>
+                                        <option value="3">สีทาบ้าน</option>
+                                        <option value="4">วัสดุปูพื้นและผนัง</option>
+                                        <option value="5">ประตูและหน้าต่าง</option>
+                                        <option value="6">วัสดุซ่อมแซ่มบ้าน</option>
+                                    </select><br><br>
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                            	<div class="col-md-2 col-sm-2">
+                                <h6>จำนวน : </h6>
+                              </div>
+                              <div>
+                              <input name="Product_amount" type="text" size="30">
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                            	<div class="col-md-2 col-sm-2">
+                                <h6>ราคา : </h6>
+                              </div>
+                              <div>
+                              <input name="Product_price" type="text" size="30">
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                            	<div class="col-md-2 col-sm-2">
+                                <h6>รูปภาพ: </h6>
+                              </div>
+                              <div>
+                              <input name="Product_pic" type="file" required><br><br>
+                              </div>
+                            </div>
+                            <br>
+
+                            <div class="text-center">
+                                <button type="submit">เพิ่มจำนวนสินค้า</button>
+                            </div>
+                        </form>
+        
 </body>
 </html>
+ 
