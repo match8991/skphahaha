@@ -88,9 +88,14 @@
             
 						<tr style="color: #000000">
                             <td><?=$row['Order_ID'];?></td>
-                            <td><?=$row['Order_amount'];?></td>
+                            <td><?=$row['Username'];?></td>
                             <td><?=$row['Order_totalprice']; echo " ฿";?></td>
-                            <td><a href="pay_order.php?Order_ID=<?=$row["Order_ID"]?>">ชำระเงิน</a></td>
+                            <td><?=$row['Bill_ID'];?></td>
+                            <td><?=$row['Bill_acname'];?></td>
+                            <td><?=$row['Bill_price'];?></td>
+                            <td><?=$row['Bill_date'];?></td>
+                            <td><?=$row['Bill_time'];?></td>
+                            <td><?=$row['Bill_photo'];?></td>
            </tr>
  
                     <?php

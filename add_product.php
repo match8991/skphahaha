@@ -85,7 +85,7 @@
                                 <h6>หมวดหมู่ : </h6>
                               </div>
                               <div>
-                                    <select name="ProType_name">
+                                    <select id="ProType_ID">
                                         <option value="1">วัสุดก่อสร้าง</option>
                                         <option value="2">หลังคา</option>
                                         <option value="3">สีทาบ้าน</option>
@@ -129,7 +129,7 @@
                             <br>
 
                             <div class="text-center">
-                                <button type="submit">เพิ่มจำนวนสินค้า</button>
+                                <button type="submit">เพิ่มสินค้า</button>
                             </div>
                         </form>
         

@@ -48,21 +48,29 @@
         </div>
       </nav>
     </header>
+
+<?php require_once "connect.php" ?>
 <?php
         $Product_name = $_POST["Product_name"];
         $Product_detail = $_POST["Product_detail"];
-        $ProType_name = $_POST["ProType_name"];
+        $ProType_ID = $_POST["ProType_ID"];
         $Product_price = $_POST["Product_price"];
         $Product_stock= $_POST["Product_stock"];
-        $Product_pic = $_POST["Product_pic"];
-    ?>
-    
-    <?php 
-            
-            $sql = "INSERT INTO product (Product_name,Product_detail,ProType_name,Product_price,Product_stock,Product_pic) VALUES ('" . $Product_name . "','" . $Product_detail . "','" .  $ProType_name . "','" . $Product_price . "','" . $Product_stock . "','" . $Product_pic . "')";
-            $conn->query($sql);
-            $result = $pdo->query("SELECT * FROM product");
-            $row = $result->fetch();
+  
+        $sql = "INSERT INTO product (Product_name,Product_detail,ProType_ID,Product_price,Product_stock) VALUES ('" . $Product_name . "','" . $Product_detail . "','" . $ProType_ID . "','" . $Product_price . "','" . $Product_stock . "')";
+        $conn->query($sql);
+        $result = $pdo->query("SELECT * FROM product");
+        $row = $result->fetch();
+    if ($_FILES["Product_pic"]["error"] > 0) {
+    echo "Return Code: " . $_FILES["Product_pic"]["error"] . "<br>";
+} else {
+
+    if (move_uploaded_file($_FILES["Product_pic"]["tmp_name"], "pic_product/" . $_POST["Product_ID"] . ".jpg")) {
+        echo "Uploade complete" . "<br>";
+    } else {
+        echo "Uploade Uncomplete" . "<br>";
+    }
+}
     ?>
     
     <div class="container">
@@ -71,7 +79,7 @@
                 <div class="panel-body">
                     <div class="col-md-offset-2 col-md-8 text-center">
                         <p>
-                            เพิ่มสินค้าเรียบร้อย
+                            เพิ่มสินค้าเรียบร้อย<a href="product.php">หมวดหมู่สินค้า</a>
                         </p>
                     </div>
                 </div>
