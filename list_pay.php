@@ -95,7 +95,7 @@
                             <td><?=$row['Bill_price']; echo " ฿";?></td>
                             <td><?=$row['Bill_date'];?></td>
                             <td><?=$row['Bill_time'];?></td>
-                            <td><?=$row['Bill_photo'];?></td>
+                            <td><?=$_POST["Order_ID"] . ".jpg"?></td>
            </tr>
  
                     <?php
