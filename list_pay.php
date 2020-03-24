@@ -45,7 +45,7 @@
           <form class="form-inline mt-2 mt-md-0">
         <button type="button" class="btn" style="background-color:#6495ED; color: #ffffff"> <?php echo $_SESSION["Username"]; ?></button>
         <a href="Authentication\logout.php"><button type="button" class="btn" style="background-color:#6495ED; color: #ffffff">ออกจากระบบ</button></a>
-
+</form> 
       </div>
     </nav>
   </header>
@@ -79,9 +79,9 @@
 
             <?php
 
-            $Username = $_SESSION["Username"];
             $User_ID = $_SESSION["User_ID"];
-            $result = $pdo->query("SELECT * FROM `order`,`bill` WHERE `order`.User_ID = $User_ID AND Username='$Username' ");
+            $Username = $_SESSION["Username"];
+            $result = $pdo->query("SELECT * FROM `order` ,`bill` where `order`.`User_ID` = $User_ID AND `order`.User_ID = `bill`.User_ID");
 						while($row = $result->fetch()){
 
             ?>
@@ -92,7 +92,7 @@
                             <td><?=$row['Order_totalprice']; echo " ฿";?></td>
                             <td><?=$row['Bill_ID'];?></td>
                             <td><?=$row['Bill_acname'];?></td>
-                            <td><?=$row['Bill_price'];?></td>
+                            <td><?=$row['Bill_price']; echo " ฿";?></td>
                             <td><?=$row['Bill_date'];?></td>
                             <td><?=$row['Bill_time'];?></td>
                             <td><?=$row['Bill_photo'];?></td>
