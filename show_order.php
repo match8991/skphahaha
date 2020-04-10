@@ -40,8 +40,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="show_order.php"><span class="font2">รายการสั่งซื้อ</span></a>
             </li>
+             <li class="nav-item active">
+              <a class="nav-link" href="list_payus.php"><span class="font2">รายการชำระเงิน</span></a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link " href="Authentication\edit_user.php"><span class="font2">แก้ไข้ข้อมูลส่วนตัว</span></a>
+              <a class="nav-link " href="Authentication\edit_user.php"><span class="font2">แก้ไขข้อมูลส่วนตัว</span></a>
             </li>
           </ul>
             <button type="button" class="btn" style="background-color:#6495ED; color: #ffffff"  >  <?php  echo $_SESSION["Username"]; ?></button>
@@ -67,7 +70,7 @@
                     <table class="table table-striped">
     					        <tr style="color: #000000">
                         <td><b>รหัสใบสั่งสินค้า</b></td>
-                        <td><b>จำนวนทั้งหมด</b></td>
+                        <!-- <td><b>จำนวนทั้งหมด</b></td> -->
                         <td><b>ราคาทั้งหมด</b></td>
     						        <!--<td><b>สถานะ</b></td>-->
    							        <td><b>ชำระเงิน</b></td>
@@ -85,7 +88,6 @@
             
 						<tr style="color: #000000">
                             <td><?=$row['Order_ID'];?></td>
-                            <td><?=$row['Order_amount'];?></td>
                             <td><?=$row['Order_totalprice']; echo " ฿";?></td>
                             <td><a href="pay_order.php?Order_ID=<?=$row["Order_ID"]?>">ชำระเงิน</a></td>
            </tr>
