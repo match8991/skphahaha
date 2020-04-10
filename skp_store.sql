@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2020 at 11:51 AM
+-- Generation Time: Apr 10, 2020 at 11:56 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -32,9 +32,35 @@ CREATE TABLE `bill` (
   `Bill_ID` int(11) NOT NULL,
   `Bill_acname` varchar(100) NOT NULL,
   `Bill_date` date NOT NULL,
-  `Bill_amount` int(10) NOT NULL,
-  `Bill_time` time NOT NULL
+  `Bill_price` int(10) NOT NULL,
+  `Bill_time` time NOT NULL,
+  `User_ID` int(11) NOT NULL,
+  `Order_ID` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`Bill_ID`, `Bill_acname`, `Bill_date`, `Bill_price`, `Bill_time`, `User_ID`, `Order_ID`) VALUES
+(1, 'hahaha', '2020-03-19', 555, '17:02:00', 0, 0),
+(2, 'ฮู้วววว', '2020-03-12', 440, '13:00:00', 0, 0),
+(3, 'ฮู้วววว', '2020-03-12', 440, '13:00:00', 0, 0),
+(4, 'ฮู้วววว', '2020-03-12', 440, '13:00:00', 0, 0),
+(5, 'ฮู้วววว', '2020-03-12', 440, '13:00:00', 0, 0),
+(6, 'ฮู้วววว', '2020-03-12', 440, '13:00:00', 0, 0),
+(7, 'มามา', '2020-03-19', 590, '01:59:00', 0, 0),
+(8, '้้hahaha', '2020-01-03', 600, '17:03:00', 0, 0),
+(9, 'jiminie', '2020-03-13', 1380, '14:09:00', 21, 0),
+(10, '่จีมิน', '2020-03-19', 230, '14:05:00', 21, 55),
+(11, 'มานะ', '2020-03-18', 510, '01:01:00', 21, 56),
+(12, 'jungkook', '2020-03-26', 2360, '02:03:00', 6, 52),
+(13, 'nanjoomnie', '2020-03-01', 200, '00:20:00', 22, 59),
+(18, 'namjoon', '2020-03-20', 3480, '05:02:00', 22, 84),
+(19, 'mama', '2020-03-11', 115, '12:00:00', 23, 85),
+(20, 'aaaa', '2020-03-17', 1000, '05:55:00', 21, 25),
+(21, '', '2020-04-14', 170, '01:55:00', 24, 27),
+(22, '', '2020-04-24', 5750, '02:59:00', 24, 28);
 
 -- --------------------------------------------------------
 
@@ -43,10 +69,8 @@ CREATE TABLE `bill` (
 --
 
 CREATE TABLE `order` (
-  `Order_ID` int(10) NOT NULL,
-  `Order_amount` varchar(10) NOT NULL,
-  `Order_totalprice` varchar(10) NOT NULL,
-  `Product_ID` int(11) NOT NULL,
+  `Order_ID` int(11) NOT NULL,
+  `Order_totalprice` int(11) NOT NULL,
   `User_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -54,45 +78,67 @@ CREATE TABLE `order` (
 -- Dumping data for table `order`
 --
 
-INSERT INTO `order` (`Order_ID`, `Order_amount`, `Order_totalprice`, `Product_ID`, `User_ID`) VALUES
-(1, '34', '3,910', 0, 0),
-(2, '34', '3,910', 0, 0),
-(3, '34', '3,910', 0, 0),
-(4, '34', '3,910', 0, 0),
-(5, '10', '4,485', 3, 6),
-(6, '10', '4,600', 3, 6),
-(7, '2', '4,715', 3, 6),
-(8, '1', '4,945', 3, 6),
-(9, '47', '5,405', 3, 6),
-(10, '49', '5,635', 3, 6),
-(11, '51', '5,865', 3, 6),
-(26, '1', '115', 3, 6),
-(27, '6', '708', 1, 6),
-(28, '29', '3,335', 2, 6),
-(29, '4', '440', 4, 6),
-(30, '1', '115', 3, 6),
-(31, '6', '708', 1, 6),
-(32, '5', '590', 1, 6),
-(33, '10', '1,150', 3, 6),
-(34, '20', '2,300', 3, 6),
-(35, '11', '1,265', 3, 6),
-(36, '2', '230', 3, 6),
-(37, '5', '230', 3, 6),
-(38, '2', '230', 3, 6),
-(39, '5', '575', 2, 6),
-(40, '5', '590', 1, 6),
-(41, '5', '600', 5, 6),
-(42, '10', '1,100', 4, 6),
-(43, '1', '115', 3, 6),
-(44, '1', '115', 3, 6),
-(45, '10', '1,150', 2, 19),
-(46, '5', '575', 2, 19),
-(47, '3', '345', 3, 6),
-(48, '1', '118', 1, 6),
-(49, '3', '345', 3, 6),
-(50, '1', '118', 1, 6),
-(51, '3', '345', 3, 6),
-(52, '20', '2,360', 1, 6);
+INSERT INTO `order` (`Order_ID`, `Order_totalprice`, `User_ID`) VALUES
+(0, 1, 21),
+(2, 1, 21),
+(3, 2, 21),
+(4, 2, 21),
+(5, 2, 21),
+(6, 2, 21),
+(7, 2, 21),
+(8, 2109, 21),
+(9, 2, 21),
+(10, 2, 21),
+(11, 2, 21),
+(12, 2, 21),
+(13, 2, 21),
+(14, 2, 21),
+(15, 2, 21),
+(16, 2, 21),
+(17, 2, 21),
+(18, 2, 21),
+(19, 2, 21),
+(20, 2, 21),
+(21, 2, 21),
+(22, 2, 21),
+(23, 2, 21),
+(24, 2581, 21),
+(25, 2817, 21),
+(26, 1825, 6),
+(27, 170, 24),
+(28, 5750, 24);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `order_detail_ID` int(11) NOT NULL,
+  `Product_ID` int(11) NOT NULL,
+  `Product_amount` int(11) NOT NULL,
+  `Product_total` int(11) NOT NULL,
+  `Order_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_detail_ID`, `Product_ID`, `Product_amount`, `Product_total`, `Order_ID`) VALUES
+(1, 2, 5, 575, 23),
+(2, 1, 15, 1, 23),
+(3, 1, 15, 1, 23),
+(4, 2, 5, 575, 24),
+(5, 1, 17, 2006, 24),
+(6, 2, 5, 575, 25),
+(7, 1, 19, 2242, 25),
+(8, 2, 10, 1150, 26),
+(9, 9, 5, 75, 26),
+(10, 5, 5, 600, 26),
+(11, 11, 10, 170, 27),
+(12, 2, 50, 5750, 28);
 
 -- --------------------------------------------------------
 
@@ -106,20 +152,23 @@ CREATE TABLE `product` (
   `ProType_ID` int(11) NOT NULL,
   `Product_detail` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `Product_price` int(11) NOT NULL,
-  `Product_stock` int(11) NOT NULL,
-  `Product_pic` varchar(500) COLLATE utf8_unicode_ci NOT NULL
+  `Product_stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`Product_ID`, `Product_name`, `ProType_ID`, `Product_detail`, `Product_price`, `Product_stock`, `Product_pic`) VALUES
-(1, 'ปูน SCG', 1, 'ปูนงานโครงสร้าง เอสซีจี', 118, 85, 'ปูนเอสซีจี.jpg'),
-(2, 'อินทรีนกเขียว', 1, 'อินทรี ปูนก่อฉาบ นกเขียว', 115, 118, 'อินทรี ปูนก่อฉาบ นกเขียว.jpg'),
-(3, 'อินทรีแดง', 1, 'อินทรี ปูนซีเมนต์ อินทรีแดง', 115, 160, 'อินทรี ปูนซีเมนต์ อินทรีแดง.jpg'),
-(4, 'อินทรีทอง', 1, 'อินทรี ปูนซีเมนต์ อินทรีทอง', 110, 98, 'อินทรี ปูนซีเมนต์ อินทรีทอง.jpg'),
-(5, 'อินทรีเพชร', 1, 'ปูนซีเมนต์ปอร์ตแลนด์ ', 120, 89, 'อินทรี ปูนซีเมนต์ปอร์ตแลนด์ อินทรีเพชร.jpg');
+INSERT INTO `product` (`Product_ID`, `Product_name`, `ProType_ID`, `Product_detail`, `Product_price`, `Product_stock`) VALUES
+(1, 'ปูน SCG', 1, 'ปูนงานโครงสร้าง เอสซีจี', 118, 85),
+(2, 'อินทรีนกเขียว', 1, 'อินทรี ปูนก่อฉาบ นกเขียว', 115, 118),
+(3, 'อินทรีแดง', 1, 'อินทรี ปูนซีเมนต์ อินทรีแดง', 115, 160),
+(4, 'อินทรีทอง', 1, 'อินทรี ปูนซีเมนต์ อินทรีทอง', 110, 98),
+(5, 'อินทรีเพชร', 1, 'ปูนซีเมนต์ปอร์ตแลนด์ ', 120, 89),
+(9, 'หลังคาคอนกรีต SCG', 2, 'สีน้ำตาลโอ๊คแดง', 15, 50),
+(11, 'หลังคาคอนกรีต SCG', 2, 'สีแดงกุหลาบ', 17, 30),
+(12, 'หลังคาคอนกรีต SCG', 2, 'สีเขียวอินทนิล', 20, 56),
+(18, 'test', 2, 'test', 10, 100);
 
 -- --------------------------------------------------------
 
@@ -186,7 +235,11 @@ INSERT INTO `user` (`User_ID`, `Username`, `Password`, `User_fname`, `User_lname
 (17, 'kakii', 'aaa111', 'ka', 'kii', 'kakakakakak', 'kaka@gmail.com', '0236598562', 1),
 (18, 'jeonjungkook', '123456', 'jeon', 'jk', 'kku', 'jkjkjk@gmail.com', '0231526532', 1),
 (19, 'matchima', '123456', 'matchima', 'jantharat', 'KKU', 'mchm@gmail.com', '0918628265', 1),
-(20, 'jantharattt', '123456', 'matchima', 'jantharat', 'kku', 'mc@gmail.com', '0918628265', 1);
+(20, 'jantharattt', '123456', 'matchima', 'jantharat', 'kku', 'mc@gmail.com', '0918628265', 1),
+(21, 'jimin', '123456', 'Park', 'Jimin', 'jijijijijiji', 'jimin@gmail.com', '0213564895', 1),
+(22, 'namjoon', '123456', 'kim', 'namjoon', 'korea', 'namjoon@gmail.com', '0231526894', 1),
+(23, 'matchi', '123456', 'matchima', 'jantharat', 'kk', 'matchi@gmail.com', '0213652896', 1),
+(24, 'Taehyung', '123456', 'Kim', 'Taehyung', 'Korea', 'Taehyung@gmail.com', '0236521456', 1);
 
 -- --------------------------------------------------------
 
@@ -224,6 +277,12 @@ ALTER TABLE `order`
   ADD PRIMARY KEY (`Order_ID`);
 
 --
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`order_detail_ID`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -257,19 +316,25 @@ ALTER TABLE `usertype`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `Bill_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Bill_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `order_detail_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `Product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Product_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `product_type`
@@ -281,7 +346,7 @@ ALTER TABLE `product_type`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `usertype`
